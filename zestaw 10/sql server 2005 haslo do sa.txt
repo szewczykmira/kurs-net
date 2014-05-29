@@ -1,0 +1,21 @@
+sa
+pass
+
+use sqlTEST
+go
+
+
+--------------------
+sciezka do baz:
+C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Data
+
+sciezka do serwera:
+C:\Program Files\Microsoft SQL Server\MSSQL.1\MSSQL\Binn
+
+konfiguracja:
+http://blogs.msdn.com/b/sqlexpress/archive/2005/05/05/415084.aspx
+http://www.sqlserverclub.com/pdfs/how-to-connect-sql-server-2005-with-microsoft-access.pdf
+
+
+do sql:
+http://blog.sqlauthority.co/2007/06/26/sql-server-2005-list-all-tables-of-database/

@@ -1,0 +1,28 @@
+#1. Utworzenie tabel w relacji jeden do wielu (jeden student do wielu adresów).
+
+create table STUDENCI
+ ( ID_STUDENT INT IDENTITY (1,1) NOT NULL
+		CONSTRAINT PK_STUDENT PRIMARY KEY NONCLUSTERED,
+	Imiê varchar(50) NOT NULL,
+	Nazwisko varchar(50) NOT NULL,
+	DataUrodzenia datetime NOT NULL,
+	PESEL bigint NOT NULL)
+	
+create table ADRESY
+( ID_ADRES INT IDENTITY (1,1) NOT NULL
+     CONSTRAINT PK_ADRES PRIMARY KEY NONCLUSTERED,
+ ID_STUDENT INT NOT NULL
+     CONSTRAINT FK_ADRES_STUDENT REFERENCES STUDENCI(ID_STUDENT),
+Miejscowoœæ varchar(150) NOT NULL,
+KodPocztowy varchar(20) NOT NULL,
+Poczta varchar(150) NOT NULL,
+NumerDomu int NOT NULL)
+
+
+#2. Wstawienie wartosci do tabel.
+insert STUDENCI values ('Mariusz', 'Winnik',1990-02-03, 90110207556);
+insert ADRESY values (1, 'Kedzierzyn', '47-200','Kedzierzyn',123);
+# pierwsze pole równe 1 okreœla dla jakiego ID_STUDENT dodaæ adres.
+
+#3. Pobieranie wartoœci.
+select * from ADRESY where ID_STUDENT=1;

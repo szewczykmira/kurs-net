@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="Studenci" xmlns:ns1="Studenci">
+  <xs:element name="Studenci">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ns1:Student"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Student">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:Adres_Staly"/>
+        <xs:element ref="ns1:Adres_Tymczasowy"/>
+        <xs:element maxOccurs="unbounded" ref="ns1:Przedmiot"/>
+      </xs:sequence>
+      <xs:attribute name="data_ur" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="imie" use="required" type="xs:NCName"/>
+      <xs:attribute name="nazwisko" use="required" type="xs:NCName"/>
+      <xs:attribute name="rok" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Adres_Staly">
+    <xs:complexType>
+      <xs:attribute name="kod" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="miejscowosc" use="required" type="xs:NCName"/>
+      <xs:attribute name="ulica" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Adres_Tymczasowy">
+    <xs:complexType>
+      <xs:attribute name="kod" use="required" type="xs:NMTOKEN"/>
+      <xs:attribute name="miejscowosc" use="required" type="xs:NCName"/>
+      <xs:attribute name="ulica" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Przedmiot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:Ocena"/>
+      </xs:sequence>
+      <xs:attribute name="nazwa" use="required"/>
+      <xs:attribute name="prowadzacy" type="xs:NCName"/>
+      <xs:attribute name="prowadzaczy" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ocena" type="xs:decimal"/>
+</xs:schema>

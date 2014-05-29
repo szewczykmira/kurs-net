@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Studenci xmlns="Studenci">
+	<Student imie="Mariusz" nazwisko="Winnik" data_ur="02-11-1990" rok="2">
+		<Adres_Staly miejscowosc="Kedzierzyn" ulica="Glowna" kod="47-200"></Adres_Staly>
+		<Adres_Tymczasowy miejscowosc="Wroclaw" ulica="Matejki" kod="51-200"></Adres_Tymczasowy>				
+		<Przedmiot nazwa="AISD" prowadzacy="K.Lorys">
+			<Ocena>4</Ocena>
+		</Przedmiot>		
+		<Przedmiot nazwa="Fizyka" prowadzacy="Pabisiak">	
+			<Ocena>4</Ocena>
+		</Przedmiot>											
+	</Student>
+	
+	<Student imie="Rafal" nazwisko="Przeslica" data_ur="12-03-1987" rok="4">		
+		<Adres_Staly miejscowosc="Gliwice" ulica="Niepodleglosci" kod="44-100"></Adres_Staly>
+		<Adres_Tymczasowy miejscowosc="Wroclaw" ulica="Piastowska" kod="53-100"></Adres_Tymczasowy>
+		<Przedmiot nazwa="Kurs C++" prowadzaczy="P.Rzechonek">
+			<Ocena>4.5</Ocena>
+		</Przedmiot>
+		<Przedmiot nazwa="Sieci komputerowe" prowadzacy="M.Bienkowski">
+			<Ocena>5</Ocena>
+		</Przedmiot>
+	</Student>
+</Studenci>
+

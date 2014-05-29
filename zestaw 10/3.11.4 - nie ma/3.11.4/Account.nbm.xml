@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="NHibernateTest" assembly="NHibernateTest">
+  <class name="Account" table="ACCOUNT" lazy="false">
+    <id name="AccId">
+      <column name="ACCID"/>
+      <generator class="native"/>
+    </id>
+    <property name="UserName">
+      <column name="username"/>
+    </property>
+    <property name="Pass">
+      <column name="pass"/>
+    </property>
+  </class>
+</hibernate-mapping>

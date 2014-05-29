@@ -1,0 +1,45 @@
+CEL: STACK UNDERFLOW
+
+otrzymamy stack underflow je¿eli mamy w kasie jakies pola statyczne, to w
+jêzyku cil pole statyczne obs³ugiwane jest przez polecenie stsfld/ldsfld.
+Jeœli zmienimy instrukcjê stsfld na stfld to bêdzie stack overflow.
+
+#1. Disasemblacja z C# do CIL
+ildasm program.exe
+
+#2. W otwartym oknie ILDASM wybieramy File->Dump i podajemy nazwê pliku cilowego.
+
+#3. Otwieramy plik cilowy zwyklym edytorem.
+W bloku kodu zmieniamy  stsfld -> na -> stfld dzieki czemu otrzymamy stack underflow
+.method public hidebysig static void  SetMethodFields() cil managed
+  {
+    // Code size       21 (0x15)
+    .maxstack 8
+    IL_0000:  ldstr      "maruisz"
+    IL_0005:  stsfld     string _3._13._1.Program/Osoba::imie
+    IL_000a:  ldstr      "ktos"
+    IL_000f:  stsfld     string _3._13._1.Program/Osoba::nazwisko
+    IL_0014:  ret
+  } // end of method Program::SetMethodFields
+  
+#4. Kompilujemy z cil'a do exe.
+ilasm dump.il
+
+#5. Weryfikujemy go przez peverify -> pamiêtaæ aby peverify by³o z .Net Frameworka 4, bo program kompilowany
+by³ t¹ w³aœnie wersj¹ frameworka.
+
+Ide do katalogu:
+C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\NETFX 4.0 Tools
+
+i uruchamiam: peverify dump.il
+
+W wyniku otrzymam informacje o stack underflow
+  
+  
+  
+Zrod³a:
+http://msdn.microsoft.com/en-us/library/system.reflection.emit.opcodes.stsfld.aspx
+http://msdn.microsoft.com/en-us/library/62bwd2yd(v=vs.80).aspx
+http://www.digipedia.pl/usenet/thread/12493/855/
+http://books.google.pl/books?id=cFMMtG3rD-IC&pg=PA95&lpg=PA95&dq=stack+underflow+cil&source=bl&ots=H5tsszYILu&sig=WGxTO5zAizdE8YVU6D-LdUiY_9Y&hl=pl&sa=X&ei=lYe7T9PrDoOC4gTfjekG&ved=0CFAQ6AEwAQ#v=onepage&q&f=false
+http://www.codeproject.com/Articles/3778/Introduction-to-IL-Assembly-Language
